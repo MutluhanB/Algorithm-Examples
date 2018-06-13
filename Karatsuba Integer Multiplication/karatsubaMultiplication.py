@@ -23,8 +23,7 @@ def karatsuba(x:int,y:int)-> int:
     ac=karatsuba(a,c)
     bd=karatsuba(b,d)
     abpcd=karatsuba(a+b,c+d)
-    print(ac,abpcd,bd)
-    print(maxlen)
+    
 
     #Writing 2*maxlen2 is a trick for odd digit inputs
     return (10**(2*maxlen2)*ac)+(10**maxlen2*(abpcd-ac-bd))+bd
