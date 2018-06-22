@@ -1,41 +1,41 @@
 #Mutluhan Boz Merge Sort 12.06.2018
+"""
+with open("C:\\Users\Mutluhan\Desktop/IntegerArray.txt") as array:
+    myList = array.read().splitlines()
+!!You must adjust the path
+""""
 def mergeSort(list):
+    
+    mid = len(list) // 2
+    leftside = list[:mid]
+    rightside = list[mid:]
 
-    if len(list)>1:
-        mid = len(list) // 2
-        leftArr = list[:mid]
-        rightArr = list[mid:]
-        print("left :" + str(leftArr))
-        print("right :" + str(rightArr))
-        print("Recursing through left side")
-        mergeSort(leftArr)
-        print("Recursing through right side")
-        mergeSort(rightArr)
-        i=0 #counters for left,right and output array
+    if len(list) > 1:
+
+        mergeSort(leftside)
+        mergeSort(rightside)
+
+        i=0
         j=0
         k=0
-        while i < len(leftArr) and j < len(rightArr):
-            if leftArr[i] < rightArr[j]:
-                list[k]=leftArr[i]
+        while i < len(leftside) and j < len(rightside):
+            if leftside[i] < rightside [j]:
+                list[k]=leftside[i]
                 i+=1
+                k+=1
             else:
-                list[k] = rightArr[j]
+                list[k] = rightside[j]
                 j+=1
-            k+=1
-        while i < len(leftArr):
-            list[k] = leftArr[i]
-            i+=1
-            k+=1
-        while j < len(rightArr):
-            list[k] = rightArr[j]
+                k+=1
+        while i < len(leftside):
+            list[k] = leftside[i]
+            i += 1
+            k += 1
+        while j < len(rightside):
+            list[k] = rightside[j]
             j+=1
             k+=1
-    print("Current state of the ordered sub-list : "+str(list))
-
-alist = [5,1,9,4,6] #our unsorted array
-print(alist)
-mergeSort(alist)
-print("--------")
-print("Ordering Complete :")
-print(alist)
+print(myList)           
+mergeSort(myList)
+print(myList)
 input()
